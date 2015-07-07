@@ -73,6 +73,7 @@ public:
 	ofParameter<int> focus;
 	ofParameter<int> focusMeasure;
 	ofParameter<bool> manualIris;
+	ofParameter<bool> mirror;
 	ofParameter<float> fps;
 	ofParameter<bool> cameraConnected;
 	ofParameter<bool> cameraAuth;

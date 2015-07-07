@@ -24,6 +24,7 @@ ofxAxisGrabber::ofxAxisGrabber() {
 
 	parameters.add(focus.set("focus",100,0,297));
 	parameters.add(manualIris.set("manualIris",true));
+	parameters.add(mirror.set("mirror", false));
 	parameters.add(exposure.set("exposure",50,0,100));
 	parameters.add(irFilterCut.set("irFilterCut",0,0,2));
 	parameters.add(compression.set("compression",30,0,100));
@@ -86,7 +87,7 @@ bool ofxAxisGrabber::initGrabber(int w, int h){
 	url << "videocodec=" << codecStr <<
 	"&resolution=" << w << "x" << h <<
 	"&compression=" << compression <<
-	"&mirror=0"
+	"&mirror=" << mirror <<
 	"&rotation=0"
 	"&textposition=top"
 	"&textbackgroundcolor=black"
