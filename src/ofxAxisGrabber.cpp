@@ -86,21 +86,7 @@ bool ofxAxisGrabber::initGrabber(int w, int h){
 	}
 	url << "videocodec=" << codecStr <<
 	"&resolution=" << w << "x" << h <<
-	"&compression=" << compression <<
-	"&mirror=" << mirror <<
-	"&rotation=0"
-	"&textposition=top"
-	"&textbackgroundcolor=black"
-	"&textcolor=white"
-	"&text=0"
-	"&clock=0"
-	"&date=0"
-	"&overlayimage=0"
-	"&fps=" << desiredFramerate <<
-	"&audio=0"
-	"&keyframe_interval=8"
-	"&videobitrate=0"
-	"&maxframesize=0";
+	"&mirror=" << mirror;
 
 	stringstream pipeline;
 	if(protocol==HTTP){
@@ -286,6 +272,8 @@ void ofxAxisGrabber::threadedFunction(){
 		if(http.getQueueLength()==0){
 			u_long now = ofGetElapsedTimeMillis();
 			updating = true;
+			
+			/*
 			ofxHttpResponse response = http.getUrl("http://"+cameraAddress+"/axis-cgi/opticssetup.cgi?monitor=poll&timestamp="+ofToString(ofGetSystemTime()));
 			if(response.status==200){
 				cameraConnected = true;
@@ -305,6 +293,8 @@ void ofxAxisGrabber::threadedFunction(){
 				}
 				ofLogError("ofxAxisGrabber")<< "couldn't update parameters: " << response.status << ": " << response.reasonForStatus;
 			}
+			*/
+			 
 			requestFocusWindow();
 			checkExposure();
 			checkIRFilterCut();
